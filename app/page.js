@@ -7,7 +7,7 @@ import { VscError } from "react-icons/vsc";
 import { useState } from "react";
 
 export default function Home() {
-  const [generatedSQL, setGeneratedSQL] = useState("");
+  const [generatedSQL, setGeneratedSQL] = useState("rffr");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 

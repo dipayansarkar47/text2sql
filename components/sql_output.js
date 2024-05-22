@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { IoMdCopy } from "react-icons/io";
+import { VscRunAll } from "react-icons/vsc";
 
 const SqlOutput = ({generatedSQL, setGeneratedSQL, loading, setLoading, error, setError}) => {
     const [sqlQuery, setSqlQuery] = useState(``);
@@ -46,10 +47,11 @@ const SqlOutput = ({generatedSQL, setGeneratedSQL, loading, setLoading, error, s
 
                 <div className="flex justify-end p-2">
                     <a target='_blank' href="https://www.programiz.com/sql/online-compiler/"
-                        className="px-4 py-2 text-gray-100 bg-blue-600 hover:bg-blue-700 rounded"
+                        className="flex items-center gap-2 px-4 py-2 text-gray-100 bg-blue-600 hover:bg-blue-700 rounded"
                         onClick={runSqlQuery}
                     >
-                        Run
+                        <VscRunAll />
+                        <h1>Run</h1>
                     </a>
                 </div>
             </div>

@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { IoMdCopy } from "react-icons/io";
 
-const SqlOutput = ({generatedSQL, setGeneratedSQL}) => {
+const SqlOutput = ({generatedSQL, setGeneratedSQL, loading, setLoading, error, setError}) => {
     const [sqlQuery, setSqlQuery] = useState(``);
 
     const copySqlQuery = () => {
-        navigator.clipboard.writeText(sqlQuery);
+        navigator.clipboard.writeText(generatedSQL);
     };
 
     const runSqlQuery = () => {
@@ -45,12 +45,12 @@ const SqlOutput = ({generatedSQL, setGeneratedSQL}) => {
 
 
                 <div className="flex justify-end p-2">
-                    <button
+                    <a target='_blank' href="https://www.programiz.com/sql/online-compiler/"
                         className="px-4 py-2 text-gray-100 bg-blue-600 hover:bg-blue-700 rounded"
                         onClick={runSqlQuery}
                     >
                         Run
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

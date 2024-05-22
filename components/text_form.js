@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function TextForm({generatedSQL, setGeneratedSQL}) {
+export default function TextForm({generatedSQL, setGeneratedSQL, loading, setLoading, error, setError}) {
     const [tableName, setTableName] = useState('');
     const [fields, setFields] = useState(['']);
     const [chips, setChips] = useState([]);
@@ -41,19 +41,28 @@ export default function TextForm({generatedSQL, setGeneratedSQL}) {
     };
 
     const handleGenerateSQL = async () => {
+
         try {
+            setError(false);
+            setLoading(true);
             const response = await axios.post('http://localhost:5000/get_sql_query', {
                 table_name: tableName,
                 fields: chips,
                 query
             });
+            if(!response){
+                setError(true);
+            }
             const fullResponse = response.data.sql_query;
             const trimmedResponse = fullResponse.match(/```sql\n([\s\S]*?)\n```/);
             console.log(trimmedResponse);
 
             setGeneratedSQL(trimmedResponse ? trimmedResponse[1] : fullResponse);
+            setLoading(false);
         } catch (error) {
             console.error('Error generating SQL:', error);
+            setLoading(false);
+            setError(true);
         }
     };
 

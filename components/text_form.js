@@ -67,8 +67,8 @@ export default function TextForm({generatedSQL, setGeneratedSQL, loading, setLoa
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold mb-4 ">Generate <span className='rounded p-1 border-b-4 border-purple-700'>SQL</span> with AI</h1>
+        <div className="container mx-auto px-4 py-8 text-white">
+            <h1 className="text-4xl font-bold mb-4 text-white">Generate <span className='rounded p-1 border-b-4 border-purple-700'>SQL</span> with AI</h1>
 
             <div className="mb-8">
                 <div className="flex flex-col justify-center items-center w-full gap-4">

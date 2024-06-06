@@ -51,7 +51,7 @@ const SqlOutput = ({generatedSQL, setGeneratedSQL, loading, setLoading, error, s
                         onClick={runSqlQuery}
                     >
                         <VscRunAll />
-                        <h1>Run</h1>
+                        <h1>Run SQL</h1>
                     </a>
                 </div>
             </div>
